@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Web App</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+</head>
+
+<body>
+  <h1>Bowling Line Calculator</h1>
+  <script src="app.js"></script>
+
+  <div class="container">
+    <div class="title-container">
+      <div class="input-title">
+        <label class="input-title">Inputs</label>
+      </div>
+    </div>
+    
+    <!-- Target Info Form -->
+    <form id="TargetInfoForm">
+      <!-- Get the breakpoint distance -->
+      <div class="form-row">
+        <label for="BreakpointDist">Breakpoint Distance (Ft):</label>
+        <input type="number" id="BreakpointDist" name="BreakpointDist" value="45">
+      </div>
+
+      <!-- Get the breakpoint board -->
+      <div class="form-row">
+        <label for="BreakpointBoard">Breakpoint Board:</label>
+        <input type="number" id="BreakpointBoard" name="BreakpointBoard" value="7">
+      </div>
+
+      <!-- Get Target Distance -->
+      <div class="form-row">
+        <label for="TargetDist">Target Distance (Ft):</label>
+        <input type="number" id="TargetDist" name="TargetDist" value="15">
+      </div>
+
+      <!-- Get Target Board -->
+      <div class="form-row">
+        <label for="TargetBoard">Target Board:</label>
+        <input type="number" id="TargetBoard" name="TargetBoard" value="14">
+      </div>
+
+      <!-- Calculate button -->
+      <div class="form-row">
+        <input type="submit" value="Calculate Line">
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
