@@ -4,53 +4,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Web App</title>
+  <title>Bowling Calculators</title>
   <link rel="stylesheet" href="stylesheet.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
 </head>
 
 <body>
-  <h1>Bowling Line Calculator</h1>
+  <h1>Line Calculator</h1>
   <script src="app.js"></script>
 
-  <div class="container">
-    <div class="title-container">
-      <div class="input-title">
-        <label class="input-title">Inputs</label>
+  <div class="main-layout">
+    <div class="side-container">
+      <p>Side Content</p>
+    </div>
+
+    <div class="mid-container">
+      <div class="mid-upper-container">
+        <div class="title-container">
+          <label class="mid-upper-label">Target Infomation</label>
+        </div>
+
+        <form id="target-info-form">
+          <div class="form-row">
+            <label for="breakpoint-dist">Breakpoint Distance (Ft):</label>
+            <input type="number" id="breakpoint-dist" name="breakpoint-dist" value="45">
+          </div>
+          <div class="form-row">
+            <label for="breakpoint-board">Breakpoint Board:</label>
+            <input type="number" id="breakpoint-board" name="breakpoint-board" value="7">
+          </div>
+          <div class="form-row">
+            <label for="target-dist">Target Distance (Ft):</label>
+            <input type="number" id="target-dist" name="target-dist" value="15">
+          </div>
+          <div class="form-row">
+            <label for="target-board">Target Board:</label>
+            <input type="number" id="target-board" name="target-board" value="14">
+          </div>
+          <div class="form-row">
+            <label for="personal-number">Personal Number:</label>
+            <input type="number" id="personal-number" name="personal-number" value="7">
+          </div>
+          <div class="form-row">
+            <input type="submit" value="Calculate Line">
+          </div>
+        </form>
+      </div>  
+      <div class="mid-lower-container">
+        <div class="title-container">
+          <label class="mid-lower-label">Results</label>
+        </div>
+
+        <form id="result-form">
+          <div class="form-row">
+            <label for="foul-line">Foul Line Board:</label>
+            <input type="number" id="foul-line" name="foul-line" readonly>
+          </div>
+          <div class="form-row">
+            <label for="slide-at">Slide on Board:</label>
+            <input type="number" id="slide-at" name="slide-at" readonly>
+          </div>
+          <div class="form-row">
+            <label for="stand-on">Stand on Board:</label>
+            <input type="number" id="stand-on" name="stand-on" readonly>
+          </div>
+        </form>
       </div>
     </div>
-    
-    <!-- Target Info Form -->
-    <form id="TargetInfoForm">
-      <!-- Get the breakpoint distance -->
-      <div class="form-row">
-        <label for="BreakpointDist">Breakpoint Distance (Ft):</label>
-        <input type="number" id="BreakpointDist" name="BreakpointDist" value="45">
-      </div>
-
-      <!-- Get the breakpoint board -->
-      <div class="form-row">
-        <label for="BreakpointBoard">Breakpoint Board:</label>
-        <input type="number" id="BreakpointBoard" name="BreakpointBoard" value="7">
-      </div>
-
-      <!-- Get Target Distance -->
-      <div class="form-row">
-        <label for="TargetDist">Target Distance (Ft):</label>
-        <input type="number" id="TargetDist" name="TargetDist" value="15">
-      </div>
-
-      <!-- Get Target Board -->
-      <div class="form-row">
-        <label for="TargetBoard">Target Board:</label>
-        <input type="number" id="TargetBoard" name="TargetBoard" value="14">
-      </div>
-
-      <!-- Calculate button -->
-      <div class="form-row">
-        <input type="submit" value="Calculate Line">
-      </div>
-    </form>
   </div>
 </body>
 
