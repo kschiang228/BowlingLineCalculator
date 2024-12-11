@@ -14,13 +14,32 @@
 
   <div class="main-layout">
     <div class="side-container">
-        <label class="side-title-label">Spares</label>
-        <form id="spare-form">
-          <div class="spare-form-row">
-            <label class="spare-pin-label" for="spare-pin">Pin:</label>
-            <select class="spare-pin-select" id="select-spare-pin" name="select-spare-pin"></select>
-          </div>
-        </form>
+        <div class="side-spare-container">
+          <label class="side-title-label">Spares</label>
+          <form id="spare-form">
+            <div class="spare-form-row">
+              <label class="spare-pin-label" for="spare-pin">Pin:</label>
+              <select class="spare-pin-select" id="select-spare-pin" name="select-spare-pin"></select>
+            </div>
+            <div class="spare-form-row">
+              <label class="spare-target-label" for="spare-target-board">Target Board:</label>
+              <input type="number" class="sidebar-input" id="spare-target-board" name="spare-target-board" value="20" maxvalue="35" minvalue="5">
+            </div>
+          </form>
+        </div>
+        <div class="side-exit-point-container">
+          <label class="side-title-label">Exit Point</label>
+          <form id="exit-point-form">
+            <div class="exit-point-form-row">
+              <label class="exit-point-label" for="pattern-length">Pattern Length:</label>
+              <input type="number" class="sidebar-input" id="pattern-length" name="pattern-length" value="45" maxvalue="60" minvalue="32">
+            </div>
+            <div class="exit-point-form-row">
+              <label class="exit-point-label" for="exit-board">Exit Board:</label>
+              <input type="number" class="sidebar-input" id="exit-board" name="exit-board" value="14" readonly>
+            </div>
+          </form>
+        </div>
     </div>
 
     <div class="mid-container">
