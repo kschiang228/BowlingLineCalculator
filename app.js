@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetBoard = parseInt( document.getElementById('spare-target-board').value);
         const targetDist = 15;
         const personalNum = 7;
+        const approachDist = 12;
 
-        const [foulLineBoard, slideBoard, standBoard] = calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, personalNum);
+        const [foulLineBoard, slideBoard, standBoard] = calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, approachDist, personalNum);
         displayResults(foulLineBoard, slideBoard, standBoard);
     });
 
@@ -57,8 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const breakpointDist = 60;
         const targetDist = 15;
         const personalNum = 7;
+        const approachDist = 12;
 
-        const [foulLineBoard, slideBoard, standBoard] = calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, personalNum);
+        const [foulLineBoard, slideBoard, standBoard] = calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, approachDist, personalNum);
         displayResults(foulLineBoard, slideBoard, standBoard);        
     });
 
@@ -83,14 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const breakpointBoard = parseInt(document.getElementById('breakpoint-board').value);
         const targetDist = parseInt(document.getElementById('target-dist').value);
         const targetBoard = parseInt(document.getElementById('target-board').value);
+        const approachDist = parseInt(document.getElementById('approach-dist').value);
         const personalNum = parseInt(document.getElementById('personal-number').value);
 
-        if(isNaN(breakpointDist) || isNaN(breakpointBoard) || isNaN(targetDist) || isNaN(targetBoard) || isNaN(personalNum)) {
+        if(isNaN(breakpointDist) || isNaN(breakpointBoard) || isNaN(targetDist) || isNaN(targetBoard) || isNaN(personalNum) || isNaN(approachDist)) {
             alert('Please enter valid numbers for all fields');
             return;
         }
 
-        const [foulLineBoard, slideBoard, standBoard] = calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, personalNum);
+        const [foulLineBoard, slideBoard, standBoard] = calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, approachDist, personalNum);
         displayResults(foulLineBoard, slideBoard, standBoard);
     });
 
@@ -124,17 +127,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // calculates target line
-    function calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, personalNum) {
-        const ratio = targetDist / breakpointDist;
-        const breakBoards = targetBoard - breakpointBoard;
-        const ratioBoard = Math.round(ratio * breakBoards);
-        const foulLineBoard = targetBoard + ratioBoard;
-        const slideBoard = foulLineBoard + personalNum;
-        const standBoard = slideBoard + ratioBoard;
+    function calculateLine(breakpointDist, breakpointBoard, targetDist, targetBoard, approachDist, personalNum) {
+        // const ratio = targetDist / (breakpointDist - targetDist);
+        // const approachRatio = (approachDist + targetDist) / (breakpointDist - targetDist);
+        // const breakBoards = targetBoard - breakpointBoard;
+        // const ratioBoard = ratio * breakBoards;
+        // const approachBoard = approachRatio * breakBoards;
+        // const foulLineBoard = Math.round(targetBoard + ratioBoard);
+        // const slideBoard = foulLineBoard + personalNum;
+        // const standBoard = Math.round(targetBoard + approachBoard + personalNum);
 
-        console.log(`1.ratio=${ratio}`);
-        console.log(`2.breakBoards=${breakBoards}`);
-        console.log(`3.ratioBoard=${ratioBoard}`);
+        const angle = Math.atan((targetBoard - breakpointBoard) / (breakpointDist - targetDist));
+        const baseFoulLineBoard = (Math.tan(angle) * (targetDist)) + targetBoard;
+        const baseStandBoard = (Math.tan(angle) * (approachDist + targetDist)) + targetBoard;
+        const foulLineBoard = Math.round(baseFoulLineBoard);
+        const slideBoard = Math.round(baseFoulLineBoard + personalNum);
+        const standBoard = Math.round(baseStandBoard + personalNum);
+
+        // console.log(`1.ratio=${ratio}`);
+        // console.log(`2.breakBoards=${breakBoards}`);
+        // console.log(`3.ratioBoard=${ratioBoard}`);
+        // console.log(`4.approachRatio=${approachRatio}`);
+        console.log(`1.angle=${angle}`);
+        console.log(`2.baseFoulLineBoard=${baseFoulLineBoard}`);
+        console.log(`3.baseStandBoard=${baseStandBoard}`);
         console.log(`4.foulLineBoard=${foulLineBoard}`);
         console.log(`5.slideBoard=${slideBoard}`);
         console.log(`6.standBoard=${standBoard}`);        
