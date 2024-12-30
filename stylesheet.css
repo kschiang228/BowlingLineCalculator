@@ -1,181 +1,116 @@
+/* stylesheet.css */
 :root {
     --primary-color: darkolivegreen;
     --secondary-color: darkslategray;
-    --accent-color: cornflowerblue;
     --text-color: wheat;
-    --shadow: 0px 0px 15px rgb(152, 240, 152);
-    --button-shadow: 3px 3px 8px white;
-    --title-shadow: var(--button-shadow);
-    --title-color: navy;
+    --result-container-color: rgb(3, 76, 3);
+    --targetinfo-container-color: navy;
+    --button-shadow: 3px 3px 3px white;
 }
-  
 body {
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 16pt;
-    font-weight: bold;
-    background-color: var(--primary-color);
-    text-align: center;
-}
-h1 {
-    color: blanchedalmond;
-    max-width: 800px;
-    max-height: 600px;
-}
-label {
-    display: inline-block;
-    width: 200px;
-    text-align: right;
-    margin-right: 10px;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 12pt;
-    font-weight: bold;
-    color: var(--text-color);
-}
-input[type="number"] {
-    width: 100px;
-    padding: 3px;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 12pt;
-    font-weight: bold;
-    box-shadow: 3px 5px 2px var(--accent-color);
-    border: 1px solid black;
-}
-input[type="submit"] {
-    display: block;
-    margin: 15px auto;
+    font-family: sans-serif;
+    margin: 0; /* Remove default body margin */
     padding: 10px;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 12pt;
-    font-weight: bold;
-    box-shadow: var(--button-shadow);
-    /* border: 1px solid black; */
+    background-color: var(--primary-color);
 }
 
-.main-layout {
+h1,h2 {
+    color: blanchedalmond;
+    text-align: center;
+}
+
+.container {
     display: flex;
-    max-width: 800px;
-}
-.side-container {
-    width: 30%;
-    border: 2px solid white;
-    background-color: var(--secondary-color);
-    padding: 5px;
-    box-shadow: var(--shadow);
-    max-width: 200px;
-}
-.mid-container {
-    flex: 1;
-    padding: 0 20px 0 20px;
-    width: 70%;
-}
-.mid-upper-container {
-    width: 90%;
-    border: 2px solid white;
-    background-color: navy;
-    margin-bottom: 25px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    align-items: stretch;
-}
-.mid-lower-container {
-    width: 90%;
-    border: 2px solid white;
-    background-color: rgb(3, 76, 3);
-    margin-bottom: 25px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    align-items: stretch;
-}
-.title-container {
-    /* border: 2px solid white; */
-    padding: 5px;
-    width: fit-content;
-    /* margin: 5px auto; */
-    background-color: var(--accent-color);
-    margin: 15px auto;
-    box-shadow: var(--title-shadow);
-}
-.mid-upper-label, .mid-lower-label {
-    display: block;
-    align-items: stretch;
-    color: var(--title-color);
-    font-size: 12pt;
+    flex-direction: column; /* Stack elements vertically on small screens */
+    width: 100%;
+    max-width: 960px; /* Optional max-width for larger screens */
+    margin: 0 auto; /* Center the container */
     padding: 10px;
-    /* width: 400px; */
-    text-align: center;
+    box-sizing: border-box;
 }
-.side-title-label {
-    max-width: 150px;
-    font-size: 12pt;
-    color: var(--text-color);
-    padding: 5px;
-    text-align: center;
-    margin: auto;
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: bold;
 }
+
+.exit-point-input-section, .spares-input-section, .target-input-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+.exit-point-input-section {
+    background-color: #1c1c1c
+}
+.spares-input-section {
+    background-color: darkred;
+}
+.target-input-section {
+    background-color: var(--targetinfo-container-color);
+}
+
 .form-row {
     display: flex;
-    align-items: center;
-    margin: 15px auto;
-    max-width: 400px;
-    /* width: fit-content; */
-    /* margin-bottom: 10px; */
-    /* background-color: darkgray; */
-}
-.target-info-form {
-    display: block;
-    /* align-items: center; */
-    /* width: fit-content; */
-    margin: 10px auto;
-    padding: 10px;
-    max-width: 400px;
-}
-.side-spare-container, .side-exit-point-container {
-    border: 1px dotted white;
-    margin: 10px 5px 10px 5px;
-}
-.spare-pin-label, .spare-target-label, .exit-point-label {
-    display: inline-block;
-    width: 100px;
-    text-align: right;
-    margin-right: 3px;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 10pt;
-    font-weight: bold;
-    color: var(--text-color);
-    /* border: 1px solid black; */
-}
-.sidebar-input[type="number"] {
-    width: 55px;
-    margin: 4px;
-    /* padding: 3px; */
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 10pt;
-    font-weight: bold;
-    box-shadow: 3px 5px 2px var(--accent-color);
-    border: 1px solid black;
-}
-
-.spare-pin-select {
-    margin: 5px;
-    width: 60px;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 10pt;
-    font-weight: bold;
-    box-shadow: 3px 5px 2px var(--accent-color);
-}
-.spare-form-row, .exit-point-form-row {
-    display: flex;
-    align-items: center;
-    /* margin: 3px 3px 5px; */
+    flex-direction: column;
     margin-bottom: 5px;
-    max-width: 200px;
-}
-.spare-form, .exit-point-form {
-    display: block;
-    /* align-items: center; */
-    /* width: fit-content; */
-    margin: 10px auto;
-    padding: 3px;
-    max-width: 200px;
 }
 
+label {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: var(--button-shadow);
+}
+
+.results-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    background-color: rgb(3, 76, 3);
+    font-weight: bold;
+}
+
+/* Media query for larger screens (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Arrange elements horizontally */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        justify-content: space-between;
+    }
+    .form-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 65%;
+    }
+
+    .input-section, .exit-point-input-section, 
+    .spares-input-section, .target-input-section {
+        width: calc(33% - 10px); /* Adjust width for spacing */
+        margin: 5px;
+    }
+
+    .results-container {
+        width: 30%;
+        margin: 5px 0;
+    }
+}
